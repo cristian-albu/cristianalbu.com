@@ -10,6 +10,7 @@ const experience = {
     },
     start_date: "start_date",
     end_date: "end_date",
+    still_active: "still_active",
     company: "company",
     company_link: "company_link",
     company_logo: "company_logo",
