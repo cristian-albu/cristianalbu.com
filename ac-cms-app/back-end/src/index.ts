@@ -1,15 +1,19 @@
-import express, { Express, Request, Response } from "express";
+import https from "https";
+import fs from "fs";
 import dotenv from "dotenv";
+import app from "./app";
 
 dotenv.config();
 
-const app: Express = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7000;
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
-});
+const options = {
+    key: fs.readFileSync("server.key"),
+    cert: fs.readFileSync("server.cert"),
+};
 
-app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+const server = https.createServer(options, app);
+
+server.listen(PORT, () => {
+    console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });

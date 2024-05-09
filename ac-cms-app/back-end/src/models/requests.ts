@@ -15,6 +15,7 @@ export async function getRows<T>(table: string): Promise<T[]> {
         const results = await client.query(`SELECT * FROM ${table};`);
         return results.rows as T[];
     } catch (error) {
+        console.error(error);
         throw error;
     } finally {
         if (client) {
@@ -46,6 +47,7 @@ export async function getRow<T>(
         );
         return results.rows[0] as T;
     } catch (error) {
+        console.error(error);
         throw error;
     } finally {
         if (client) {
@@ -88,6 +90,7 @@ export async function createRow<T>(
         );
         return results.rows[0] as T;
     } catch (error) {
+        console.error(error);
         throw error;
     } finally {
         if (client) {
@@ -139,6 +142,7 @@ export async function updateRow<T>(
         );
         return results.rows[0] as T;
     } catch (error) {
+        console.error(error);
         throw error;
     } finally {
         if (client) {
@@ -163,6 +167,7 @@ export async function deleteRow(table: string, table_id: string, id: number) {
         await client.query(`DELETE FROM ${table} WHERE ${table_id}=$1`, [id]);
         return { message: `Deleted item with id: ${id} from table ${table}` };
     } catch (error) {
+        console.error(error);
         throw error;
     } finally {
         if (client) {

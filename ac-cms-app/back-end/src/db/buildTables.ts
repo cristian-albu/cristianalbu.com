@@ -31,6 +31,7 @@ async function buildTable(
 }
 
 async function buildSchema(tables: { name: string; query: string }[]) {
+    console.log("Starting building tables based on schema...");
     let client: PoolClient | undefined;
     try {
         client = await pool.connect();
