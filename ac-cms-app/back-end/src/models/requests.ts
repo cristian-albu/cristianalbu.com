@@ -78,10 +78,12 @@ export async function createRow<T>(
             throw new Error("table_keys and values length must match");
         }
 
-        const keys = table_keys.join(", ");
+        let keys = table_keys[0];
         let placeholder_vals = "$1";
-        for (let i = 2; i < values.length; i++) {
-            placeholder_vals += `,$${i}`;
+
+        for (let i = 1; i < table_keys.length; i++) {
+            keys += `,${table_keys[i]}`;
+            placeholder_vals += `,$${i + 1}`;
         }
 
         const results = await client.query(
@@ -130,14 +132,14 @@ export async function updateRow<T>(
         for (let i = 0; i < table_keys.length; i++) {
             const curr = table_keys[i];
             const queryConfig = `$${i + 1}`;
-
             const comma = i === table_keys.length - 1 ? "" : ", ";
-
             setVals += `${curr} = ${queryConfig}${comma}`;
         }
 
         const results = await client.query(
-            `UPDATE ${table} SET ${setVals} WHERE ${table_id}=$${table_keys.length} RETURNING *;`,
+            `UPDATE ${table} SET ${setVals} WHERE ${table_id}=$${
+                table_keys.length + 1
+            } RETURNING *;`,
             [...values, id]
         );
         return results.rows[0] as T;

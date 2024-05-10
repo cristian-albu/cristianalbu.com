@@ -65,7 +65,7 @@ export async function httpsCreateTool(req: Request, res: Response) {
     try {
         const result = await createTool(parsedNewTool.data);
 
-        return res.status(200).json(result);
+        return res.status(201).json(result);
     } catch (error) {
         return res.status(500).json({
             message: error,
@@ -93,7 +93,7 @@ export async function httpsUpdateTool(req: Request, res: Response) {
     try {
         const result = await updateTool(parsedNewTool.data);
 
-        return res.status(200).json(result);
+        return res.status(201).json(result);
     } catch (error) {
         return res.status(500).json({
             message: error,
