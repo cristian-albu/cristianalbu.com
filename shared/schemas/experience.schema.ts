@@ -13,7 +13,7 @@ export const ExperienceContents_Schema = z.object({
     [experience.still_active]: z.boolean(),
     [experience.company]: z.string(),
     [experience.company_link]: z.string().url(),
-    [experience.company_logo]: z.string().url(),
+    [experience.company_logo.label]: z.string().url(),
 });
 
 export const Experience_Schema = ExperienceContents_Schema.and(
@@ -38,7 +38,7 @@ CREATE TABLE ${tables.experience}(
         ${experience.still_active} BOOLEAN DEFAULT false,
         ${experience.company} VARCHAR(63) NOT NULL,
         ${experience.company_link} VARCHAR(255) NOT NULL,
-        ${experience.company_logo} VARCHAR(255) NOT NULL
+        ${experience.company_logo.label} VARCHAR(255) NOT NULL
 );`;
 
 export const Experiences_Tools = `--sql

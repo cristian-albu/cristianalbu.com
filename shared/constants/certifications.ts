@@ -12,7 +12,7 @@ const certification = {
         label: "description",
         max: 255,
     },
-    image: "image",
+    image: { label: "image", type: "img" },
     link: "link",
 } as const;
 

@@ -13,7 +13,7 @@ const experience = {
     still_active: "still_active",
     company: "company",
     company_link: "company_link",
-    company_logo: "company_logo",
+    company_logo: { label: "company_logo", type: "img" },
     technologies: "technologies",
 } as const;
 

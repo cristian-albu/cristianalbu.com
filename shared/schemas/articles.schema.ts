@@ -7,7 +7,7 @@ import { article, tables } from "../constants";
 export const ArticleContents_Schema = z.object({
     [article.title.label]: z.string().max(article.title.max),
     [article.description.label]: z.string().max(article.description.max),
-    [article.image]: z.string().url(),
+    [article.image.label]: z.string().url(),
     [article.content.label]: z.string().max(article.content.max),
     [article.category.label]: z.enum(article.category.options),
 });
@@ -23,7 +23,7 @@ CREATE TABLE ${tables.article}(
         ${article.article_id} SERIAL PRIMARY KEY,
         ${article.title.label} VARCHAR(${article.title.max}) NOT NULL,
         ${article.description.label} VARCHAR(${article.description.max}) NOT NULL,
-        ${article.image} VARCHAR(255) NOT NULL,
+        ${article.image.label} VARCHAR(255) NOT NULL,
         ${article.content.label} JSON NOT NULL,
         ${article.category.label} VARCHAR(63) NOT NULL
 );`;

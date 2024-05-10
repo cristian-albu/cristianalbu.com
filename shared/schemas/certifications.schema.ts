@@ -10,7 +10,7 @@ export const CertificationContents_Schema = z.object({
     [certification.description.label]: z
         .string()
         .max(certification.description.max),
-    [certification.image]: z.string().url(),
+    [certification.image.label]: z.string().url(),
     [certification.link]: z.string().url(),
 });
 
@@ -26,6 +26,6 @@ CREATE TABLE ${tables.certification}(
         ${certification.title.label} VARCHAR(${certification.title.max}) NOT NULL,
         ${certification.issuer.label} VARCHAR(${certification.issuer.max}) NOT NULL,
         ${certification.description.label} VARCHAR(${certification.description.max}) NOT NULL,
-        ${certification.image} VARCHAR(255) NOT NULL,
+        ${certification.image.label} VARCHAR(255) NOT NULL,
         ${certification.link} VARCHAR(255) NOT NULL
 );`;

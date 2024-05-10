@@ -8,7 +8,7 @@ const client = {
         label: "description",
         max: 255,
     },
-    image: "image",
+    image: { label: "image", type: "img" },
     client_link: "client_link",
     testimonial: {
         label: "testimonial",
@@ -18,7 +18,10 @@ const client = {
         label: "testimonial_representative",
         max: 63,
     },
-    testimonial_representative_image: "testimonial_representative_image",
+    testimonial_representative_image: {
+        label: "testimonial_representative_image",
+        type: "img",
+    },
 } as const;
 
 export default client;

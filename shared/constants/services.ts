@@ -8,12 +8,13 @@ const service = {
         label: "description",
         max: 255,
     },
-    image: "image",
+    image: { label: "image", type: "img" },
     content: {
         label: "content",
         max: 16383,
+        type: "richText",
     },
-    starting_price: "starting_price",
+    starting_price: { label: "starting_price", type: "number" },
 } as const;
 
 export default service;

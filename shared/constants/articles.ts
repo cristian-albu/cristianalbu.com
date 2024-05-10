@@ -8,10 +8,11 @@ const article = {
         label: "description",
         max: 255,
     },
-    image: "image",
+    image: { label: "image", type: "img" },
     content: {
         label: "content",
         max: 16383,
+        type: "richText",
     },
     category: {
         label: "category",

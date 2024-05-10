@@ -7,9 +7,9 @@ import { service, tables } from "../constants";
 export const ServiceContents_Schema = z.object({
     [service.title.label]: z.string().max(service.title.max),
     [service.description.label]: z.string().max(service.description.max),
-    [service.image]: z.string().url(),
+    [service.image.label]: z.string().url(),
     [service.content.label]: z.string().max(service.content.max),
-    [service.starting_price]: z.number().int(),
+    [service.starting_price.label]: z.number().int(),
 });
 
 export const Service_Schema = ServiceContents_Schema.and(
@@ -23,7 +23,7 @@ CREATE TABLE ${tables.service}(
         ${service.service_id} SERIAL PRIMARY KEY,
         ${service.title.label} VARCHAR(${service.title.max}) NOT NULL,
         ${service.description.label} VARCHAR(${service.description.max}) NOT NULL,
-        ${service.image} VARCHAR(255) NOT NULL,
+        ${service.image.label} VARCHAR(255) NOT NULL,
         ${service.content.label} JSON NOT NULL,
-        ${service.starting_price} INTEGER NOT NULL
+        ${service.starting_price.label} INTEGER NOT NULL
 );`;
