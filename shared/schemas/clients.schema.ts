@@ -30,5 +30,5 @@ CREATE TABLE ${tables.client}(
         ${client.client_link} VARCHAR(255) NOT NULL,
         ${client.testimonial.label} VARCHAR(${client.testimonial.max}),
         ${client.testimonial_representative.label} VARCHAR(${client.testimonial_representative.max}),
-        ${client.testimonial_representative_image} VARCHAR(255),
+        ${client.testimonial_representative_image} VARCHAR(255)
 );`;

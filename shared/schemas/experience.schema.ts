@@ -45,7 +45,7 @@ export const Experiences_Tools = `--sql
 CREATE TABLE ${tables.experience}_${tables.tools}(
         ${experience.experience_id} INTEGER NOT NULL,
         ${tool.tool_id} INTEGER NOT NULL,
-        FOREIGN KEY ${experience.experience_id} REFERENCES ${tables.experience}(${experience.experience_id}) ON DELETE CASCADE,
-        FOREIGN KEY ${tool.tool_id} REFERENCES ${tables.tools}(${tool.tool_id}) ON DELETE CASCASE,
+        FOREIGN KEY (${experience.experience_id}) REFERENCES ${tables.experience}(${experience.experience_id}) ON DELETE CASCADE,
+        FOREIGN KEY (${tool.tool_id}) REFERENCES ${tables.tools}(${tool.tool_id}) ON DELETE CASCADE,
         PRIMARY KEY (${experience.experience_id}, ${tool.tool_id})
 );`;
