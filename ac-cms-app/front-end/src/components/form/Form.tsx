@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { forwardRef } from "react";
-import { T_Form } from ".";
-import TextInput, { T_TextInput } from "../text-input";
+import { T_Form, T_FormInput } from ".";
+import TextInput from "../text-input";
 
-const Form = forwardRef<HTMLFormElement, T_Form>(
+const Form = forwardRef<HTMLFormElement, T_Form<T_FormInput>>(
     ({ form_title, inputs, children, ...htmlAttributes }, ref) => {
         return (
             <form
-                className="w-full p-5 relative shadow-xl rounded-xl flex flex-col gap-2 justify-start items-start"
+                className="w-full relative flex flex-col gap-2 justify-start items-start"
                 ref={ref}
                 {...htmlAttributes}
             >
@@ -24,7 +25,7 @@ const Form = forwardRef<HTMLFormElement, T_Form>(
 
 export default Form;
 
-const Inputs = ({ input }: { input: T_TextInput }) => {
+const Inputs = ({ input }: { input: T_FormInput }) => {
     switch (input.type) {
         case "text":
         case "number":
