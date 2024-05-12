@@ -1,5 +1,9 @@
 import { tool } from "../../../../shared/constants";
-import { T_Tool, ToolContents_Schema } from "../../../../shared/schemas";
+import {
+    T_Tool,
+    ToolContents_Schema,
+    Tool_Schema,
+} from "../../../../shared/schemas";
 import { T_TextInput } from "../components/text-input";
 import useFetch from "../utils/useFetch";
 import ResourceBuilder from "../components/resource-builder/ResourceBuilder";
@@ -35,9 +39,9 @@ const Tools = () => {
                               <ResourceBuilder
                                   formInputs={formInputs}
                                   refetch={refetch}
-                                  schema={ToolContents_Schema}
+                                  schema={Tool_Schema}
                                   reqMethod="PUT"
-                                  apiUri="tools"
+                                  apiUri={`tools/${formInputs[0].label}`}
                                   formTitle="Edit Tools"
                               />
                           </Modal>
@@ -49,6 +53,7 @@ const Tools = () => {
 
     return (
         <div className="p-10">
+            <h1 className="text-4xl mb-5">Tools</h1>
             {data === null || loading ? (
                 <div>Loading...</div>
             ) : (
@@ -65,7 +70,7 @@ const Tools = () => {
                     refetch={refetch}
                     schema={ToolContents_Schema}
                     reqMethod="POST"
-                    apiUri="tools"
+                    apiUri={`tools`}
                     formTitle="Add Tools"
                 />
             </Modal>

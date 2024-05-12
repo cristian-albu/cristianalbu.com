@@ -16,13 +16,13 @@ export const ToolContents_Schema = z
     })
     .strict();
 
-export const Tool_Schema = ToolContents_Schema.and(
-    z
-        .object({
-            [tool.tool_id]: z.number().positive().int(),
-        })
-        .strict()
-);
+const { ...commonProps } = ToolContents_Schema.shape;
+export const Tool_Schema = z
+    .object({
+        ...commonProps,
+        [tool.tool_id]: z.number().positive().int(),
+    })
+    .strict();
 
 export const Tools = `--sql
 CREATE TABLE ${tables.tools} (

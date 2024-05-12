@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { T_Modal } from ".";
 import Button from "../button";
 import { createPortal } from "react-dom";
 
-const Modal: FC<T_Modal> = ({ target, children }) => {
+const Modal: FC<T_Modal> = ({ target, children, close }) => {
     const [showModal, setShowModal] = useState(false);
 
     const closeModal = () => {
@@ -13,6 +13,12 @@ const Modal: FC<T_Modal> = ({ target, children }) => {
     const toggleModal = () => {
         setShowModal((prev) => !prev);
     };
+
+    useEffect(() => {
+        if (close === false) {
+            closeModal();
+        }
+    }, [close]);
     return (
         <div>
             <Button onClick={toggleModal}>{target}</Button>
