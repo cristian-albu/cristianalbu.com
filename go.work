@@ -1,8 +1,8 @@
 go 1.25.5
 
 use (
+	.
 	./learning/01-coding/01-language/10-modules-and-packages
 	./learning/01-coding/01-language/11-testing
-	./learning/01-coding/02-elemental-agorithms/01-sum-product-enumeration/01-gauss-sum
-	./learning/01-coding/02-elemental-agorithms/01-sum-product-enumeration/02-even-sum
+	./learning/01-coding/02-elemental-agorithms
 )

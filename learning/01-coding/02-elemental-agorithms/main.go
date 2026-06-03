@@ -1,6 +1,7 @@
 package main
 
 import (
+	gaussum "elalgo/02-gauss-sum"
 	"fmt"
 	"os"
 	"strconv"
@@ -22,13 +23,6 @@ func main() {
 		return
 	}
 
-	fmt.Println(Solution(n))
-}
+	fmt.Println(gaussum.Solution(n))
 
-func Solution(n int) int {
-	sum := n * 2
-	for i := 2; i < n*2; i += 2 {
-		sum += i
-	}
-	return sum
 }
