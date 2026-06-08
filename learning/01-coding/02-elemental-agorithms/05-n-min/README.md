@@ -22,7 +22,6 @@ The program displays on the screen the number `MIN`, representing the smallest o
 "Input data"
 
 ```
-5
 7 6 9 6 8
 ```
 

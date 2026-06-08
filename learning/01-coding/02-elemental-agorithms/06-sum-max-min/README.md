@@ -22,7 +22,6 @@ The program displays on the screen the number `S`, representing the sum between 
 "Input data"
 
 ```
-5
 7 2 8 4 8
 ```
 

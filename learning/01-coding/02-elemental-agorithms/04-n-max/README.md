@@ -22,7 +22,6 @@ The program displays on the screen the number `MAX`, representing the largest of
 "Input data"
 
 ```
-5
 7 6 9 6 8
 ```
 
