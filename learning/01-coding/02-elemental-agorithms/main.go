@@ -1,7 +1,7 @@
 package main
 
 import (
-	gaussum "elalgo/02-gauss-sum"
+	divisorsum "elalgo/14-divisor-sum"
 	"fmt"
 	"os"
 	"strconv"
@@ -23,6 +23,6 @@ func main() {
 		return
 	}
 
-	fmt.Println(gaussum.Solution(n))
+	fmt.Println(divisorsum.Solution(n))
 
 }
