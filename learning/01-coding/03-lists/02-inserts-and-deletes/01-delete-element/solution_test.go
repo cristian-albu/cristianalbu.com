@@ -26,4 +26,12 @@ func TestSuite(t *testing.T) {
 		}
 	}
 
+	for _, th := range data {
+		result := Solution2(th.Input, th.P)
+
+		if !reflect.DeepEqual(result, th.Expected) {
+			t.Errorf("Expected %v but got %v", th.Expected, result)
+		}
+	}
+
 }
