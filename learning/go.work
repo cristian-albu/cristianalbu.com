@@ -1,0 +1,8 @@
+go 1.25.5
+
+use (
+	.
+	./01-coding/01-language/10-modules-and-packages
+	./01-coding/01-language/11-testing
+	./01-coding/02-elemental-agorithms
+)
