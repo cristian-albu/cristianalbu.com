@@ -16,6 +16,49 @@ export function initializeState(data: T_Input[]): T_FormData {
                     type: el.type,
                     value: el.defaultValue ? el.defaultValue : "",
                 };
+                break;
+            }
+            case InputType.number: {
+                initialState[el.name] = {
+                    type: el.type,
+                    value: el.defaultValue ? el.defaultValue : 0,
+                };
+                break;
+            }
+            case InputType.textarea: {
+                initialState[el.name] = {
+                    type: el.type,
+                    value: el.defaultValue ? el.defaultValue : "",
+                };
+                break;
+            }
+            case InputType.switch: {
+                initialState[el.name] = {
+                    type: el.type,
+                    value: el.defaultValue ? el.defaultValue : false,
+                };
+                break;
+            }
+            case InputType.radio: {
+                initialState[el.name] = {
+                    type: el.type,
+                    value: el.defaultValue ? el.defaultValue : "",
+                };
+                break;
+            }
+            case InputType.select: {
+                initialState[el.name] = {
+                    type: el.type,
+                    value: el.defaultValue ? el.defaultValue : "",
+                };
+                break;
+            }
+            case InputType.fileUpload: {
+                initialState[el.name] = {
+                    type: el.type,
+                    value: "",
+                };
+                break;
             }
         }
     });

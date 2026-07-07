@@ -4,7 +4,7 @@ import { FC } from "react";
 import { T_FormProps } from "../types";
 import { Button } from "@/components";
 import { useForm } from "./useForm";
-import { Input } from "./Input";
+import { Input } from "..";
 
 export const Form: FC<T_FormProps> = ({ title, inputs, handlerProps }) => {
     const { handleSubmit, loadingState, handleDataChange, dataState } = useForm(
@@ -26,7 +26,7 @@ export const Form: FC<T_FormProps> = ({ title, inputs, handlerProps }) => {
                     <Input
                         key={el.name}
                         data={el}
-                        value={dataState[el.name]}
+                        inputValue={dataState[el.name]}
                         changeHandler={handleDataChange}
                     />
                 ))}

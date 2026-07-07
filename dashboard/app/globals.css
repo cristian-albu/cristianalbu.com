@@ -5,6 +5,39 @@
     --foreground: #171717;
 }
 
+@layer base {
+    select[data-modern] {
+        appearance: base-select;
+    }
+
+    select[data-modern]::picker(select) {
+        appearance: base-select;
+        border: 1px solid black;
+        border-radius: theme("borderRadius.lg");
+        box-shadow: theme("boxShadow.lg");
+        padding: 4px;
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+        transition:
+            opacity 150ms ease,
+            transform 150ms ease,
+            display 150ms allow-discrete,
+            overlay 150ms allow-discrete;
+    }
+
+    select[data-modern]:open::picker(select) {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    @starting-style {
+        select[data-modern]:open::picker(select) {
+            opacity: 0;
+            transform: translateY(-4px) scale(0.98);
+        }
+    }
+}
+
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
