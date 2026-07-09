@@ -17,7 +17,7 @@ export const Form: FC<T_FormProps> = ({ title, inputs, handlerProps }) => {
 
     return (
         <form
-            className="w-[50vw] flex flex-col p-10 border-2 rounded-2xl justify-start items-start gap-4"
+            className="w-150 flex flex-col p-10 border-2 rounded-2xl justify-start items-start gap-4"
             onSubmit={handleSubmit}
         >
             <p>{title}</p>

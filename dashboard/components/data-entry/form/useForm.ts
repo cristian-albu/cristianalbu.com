@@ -34,14 +34,6 @@ export const useForm = ({ inputs, handlerProps }: T_FormProps): T_UseForm => {
         setLoadingState(true);
 
         console.log(dataState);
-
-        try {
-            await fetch(handlerProps.endpoint, { method: handlerProps.method });
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoadingState(false);
-        }
     };
 
     return {

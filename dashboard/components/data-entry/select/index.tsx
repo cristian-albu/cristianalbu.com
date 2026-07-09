@@ -28,7 +28,7 @@ export const SelectInput: FC<T_SelectInputProps> = ({
                 <p>{data.label}</p>
                 <select
                     data-modern
-                    className="w-full rounded-lg border-2 bg-white px-3 py-2 **:shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-50"
+                    className="w-full rounded-lg border-2 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-50"
                     value={inputValue.value}
                     onChange={localChangeHandler}
                 >
@@ -36,7 +36,7 @@ export const SelectInput: FC<T_SelectInputProps> = ({
                         <option
                             key={el.value}
                             value={el.value}
-                            className="cursor-pointer px-3 py-2 text-sm hover:bg-gray-50 aria-selected:bg-indigo-100 aria-selected:font-medium"
+                            className="cursor-pointer px-3 py-2 text-sm hover:bg-gray-60 aria-selected:bg-indigo-100 aria-selected:font-medium"
                         >
                             {el.label}
                         </option>
