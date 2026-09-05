@@ -10,7 +10,7 @@ The program reads the number `n` from standard input, followed by `n` natural nu
 The program prints, separated by spaces, the elements of the vector obtained after the duplication.
 
 ## Constraints
-- `0 < n ≤ 1000`
+- `0 < n ≤ 50`
 - The elements of the vector will be less than `2^30`
 
 ## Example

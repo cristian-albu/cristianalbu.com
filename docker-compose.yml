@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: cristianalbu
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgweb:
+    image: sosedoff/pgweb
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      PGWEB_DATABASE_URL: postgres://dev:dev@postgres:5432/cristianalbu?sslmode=disable
+    ports:
+      - "8081:8081"
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: dev
+      DB_PASSWORD: dev
+      DB_NAME: cristianalbu
+      SEED_DB: "true"
+    volumes:
+      - ./api:/app
+    ports:
+      - "8080:8080"
+
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      NODE_ENV: development
+      WATCHPACK_POLLING: "true"
+      NEXT_PUBLIC_API_URL: http://localhost:8080
+    volumes:
+      - ./dashboard:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:
